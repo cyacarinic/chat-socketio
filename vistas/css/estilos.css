@@ -8,6 +8,37 @@ body {
     font: 13px Helvetica, Arial;
 }
 
+.izquierda {
+    display: inline-block;
+    float: left;
+    width: 70%;
+}
+
+.derecha {
+    display: inline-block;
+    float: right;
+    width: 30%;
+    border-left: 1px dashed black;
+}
+
+#notificaciones {
+    list-style-type: none;
+}
+
+#notificaciones li {
+    padding: 8px 10px;
+    height: 50px;
+    overflow: scroll;
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+
+#notificaciones .titulo-notif {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 #form-nombre #nombre {
     padding: 5px;
     font-size: 1em;

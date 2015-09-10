@@ -15,10 +15,10 @@ var personas = {};
 
 // socket escuchará la conección
 io.on('connection', function(socket){
-    console.log('-> usuario conectado');
     io.emit('usuarioID', socket.id);
-    personas[socket.id] = socket.id;
+    console.log('-> usuario conectado');
     socket.on('disconnect', function(){
+        io.emit('notificacion', ' usuario "'+socket.id+'" (alias "'+personas[socket.id]+'") se desconectó.');
         console.log('-> usuario desconectado');
     });
     socket.on('mensajeEnviado', function(msg){
@@ -28,6 +28,7 @@ io.on('connection', function(socket){
     socket.on('newUsuarioID', function(nombre){
         console.log('==> nuevo nombre: '+nombre);
         personas[socket.id] = nombre;
+        io.emit('notificacion', ' usuario : "'+socket.id+'" conectado como "'+personas[socket.id]+'"');
     });
 
 })

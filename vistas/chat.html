@@ -5,18 +5,27 @@
         <link rel="stylesheet" href="css/estilos.css">
     </head>
     <body>
-        <div class="login">
-            <form action=""  id="form-nombre">
-                Bienvenido <input id="nombre"/>
-                <button>Login</button>
-            </form>
+
+        <div class="izquierda">
+            <div class="login">
+                <form action=""  id="form-nombre">
+                    Bienvenido <input id="nombre"/>
+                    <button>Login</button>
+                </form>
+            </div>
+            <div class="chat">
+                <ul id="messages"></ul>
+                <form action="" id="form-mensaje">
+                    <input id="m" class="bloqueado" autocomplete="off" disabled/>
+                    <button>Send</button>
+                </form>
+            </div>
         </div>
-        <div class="chat">
-            <ul id="messages"></ul>
-            <form action="" id="form-mensaje">
-                <input id="m" class="bloqueado" autocomplete="off" disabled/>
-                <button>Send</button>
-            </form>
+
+        <div class="derecha">
+            <ul id="notificaciones">
+                <li class="titulo-notif">Notificaciones</li>
+            </ul>
         </div>
 
         <!-- listener -->
@@ -37,11 +46,13 @@
             $('#form-nombre').submit(function(){
                 var nombre = $('#nombre').val();
                 socket.emit('newUsuarioID', nombre);
-
                 $('#m').prop('disabled',false);
                 $('#m').removeClass('bloqueado').focus();
-
                 return false;
+            });
+
+            socket.on('notificacion', function(novedad){
+                $('#notificaciones').append($('<li>').text(novedad));
             });
 
 
