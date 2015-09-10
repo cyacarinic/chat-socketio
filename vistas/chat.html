@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Ejemplo de chat - SocketIO</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <div class="login">
+            <form action=""  id="form-nombre">
+                Bienvenido <input id="nombre"/>
+                <button>Login</button>
+            </form>
+        </div>
+        <div class="chat">
+            <ul id="messages"></ul>
+            <form action="" id="form-mensaje">
+                <input id="m" class="bloqueado" autocomplete="off" disabled/>
+                <button>Send</button>
+            </form>
+        </div>
+
+        <!-- listener -->
+        <!-- <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+        </script> -->
+
+        <!-- Enviar eventos al servidor -->
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+            var socket = io();
+            socket.on('usuarioID', function(nombre){
+                $('#nombre').val(nombre);
+            });
+
+            $('#form-nombre').submit(function(){
+                var nombre = $('#nombre').val();
+                socket.emit('newUsuarioID', nombre);
+
+                $('#m').prop('disabled',false);
+                $('#m').removeClass('bloqueado').focus();
+
+                return false;
+            });
+
+
+            $('#form-mensaje').submit(function(){
+                socket.emit('mensajeEnviado', $('#m').val());
+                $('#m').val('');
+                return false;
+            });
+            socket.on('mensajeRecibido', function(msg){
+                $('#messages').append($('<li>').text(msg));
+            });
+
+        </script>
+  </body>
+</html>
