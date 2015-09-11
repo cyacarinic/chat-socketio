@@ -7,7 +7,7 @@ var io = require('socket.io')(http);
 
 app.get('/', function(req, res){
     // res.send('<h1>Hola mundo!!</h1>');
-    res.sendFile(__dirname+ '/vistas/chat.html')
+    res.sendFile(__dirname+ '/vistas/mi_chat.html')
 });
 app.use(express.static(__dirname + '/vistas'));
 

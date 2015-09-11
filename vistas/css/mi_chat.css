@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 13px Helvetica, Arial;
+}
+
+header {
+    background-color: black;
+    color:white;
+    opacity: 0.8;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    display: block;
+}
+
+section {
+    padding: 70px 0 50px 0;
+    height: 100%;
+}
+
+.login {
+    width: 100%;
+    background-color: blue;
+    opacity: 0.8;
+    color: white;
+    padding: 8px;
+}
+#form-nombre #nombre {
+    width: 170px
+}
+
+.mensajes, .notificaciones {
+    display: inline-block;
+    float: left;
+}
+.mensajes {
+    width: 70%;
+    /* Standard */
+    height: calc(100vh - 103px);
+    /* Firefox */
+    height: -moz-calc(100vh - 103px);
+    /* WebKit */
+    height: -webkit-calc(100vh - 103px);
+    /* Opera */
+    height: -o-calc(100vh - 103px);
+    overflow: scroll;
+}
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 39px;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+    background: #eee;
+}
+
+
+.notificaciones {
+    width: 30%;
+    background-color: green;
+    color: white;
+}
+
+#notificaciones {
+    list-style-type: none;
+    /* Standard */
+    height: calc(100vh - 140px);
+    /* Firefox */
+    height: -moz-calc(100vh - 140px);
+    /* WebKit */
+    height: -webkit-calc(100vh - 140px);
+    /* Opera */
+    height: -o-calc(100vh - 140px);
+    overflow: scroll;
+}
+
+#notificaciones li {
+    padding: 8px 10px;
+    height: 50px;
+    overflow: scroll;
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+
+#notificaciones .titulo-notif {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+footer {
+    background-color: red;
+    color: white;
+    opacity: 0.8;
+    padding: 0px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.bloqueado {
+    background-color: gray;
+}
+
+#form-mensaje {
+    padding: 5px;
+    width: 100%;
+}
+
+#form-mensaje input {
+    border: 0;
+    padding: 7px;
+    width: 86%;
+}

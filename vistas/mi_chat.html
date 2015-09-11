@@ -1,32 +1,42 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html>
     <head>
-        <title>Ejemplo de chat - SocketIO</title>
-        <link rel="stylesheet" href="css/estilos.css">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/mi_chat.css">
+        <title></title>
     </head>
     <body>
 
-        <div class="izquierda">
+        <header>
+            <h1>Mi Chat</h1>
+        </header>
+
+        <section>
             <div class="login">
                 <form action=""  id="form-nombre">
                     Bienvenido <input id="nombre"/>
                     <button>Login</button>
                 </form>
             </div>
-            <div class="chat">
+            <div class="mensajes">
                 <ul id="messages"></ul>
+            </div>
+            <div class="notificaciones">
+                <ul id="notificaciones">
+                    <li class="titulo-notif">Notificaciones</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <div class="formulario">
                 <form action="" id="form-mensaje">
                     <input id="m" class="bloqueado" autocomplete="off" disabled/>
                     <button>Send</button>
                 </form>
             </div>
-        </div>
+        </footer>
 
-        <div class="derecha">
-            <ul id="notificaciones">
-                <li class="titulo-notif">Notificaciones</li>
-            </ul>
-        </div>
 
         <!-- listener -->
         <!-- <script src="/socket.io/socket.io.js"></script>
@@ -66,5 +76,6 @@
             });
 
         </script>
-  </body>
+
+    </body>
 </html>
