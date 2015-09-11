@@ -32,12 +32,20 @@ io.on('connection', function(socket){
     });
 
     // NOTIFICACIONES DE BACKOFFICE
-    socket.on('newUsuarioBO', function(usuario){
-        console.log(usuario);
-        if(usuario.result){
-            io.emit('notificacion', "Se creó el usuario : '"+usuario.result[0].email+"'");
-        }
-
+    socket.on('newClienteBO', function(cliente){
+        io.emit('notificacion', "Se creó el cliente : '"+cliente.result[0].email+"'");
+    });
+    socket.on('getClientesBO', function(consulta){
+        io.emit('notificacion', consulta);
+    });
+    socket.on('getClienteBO', function(cliente){
+        io.emit('notificacion', "Se consultó al cliente '"+cliente.email+"'.");
+    });
+    socket.on('editClienteBO', function(cliente){
+        io.emit('notificacion', "Se editó la información del cliente '"+cliente.email+"'.");
+    });
+    socket.on('deleteClienteBO', function(cliente){
+        io.emit('notificacion', "Se eliminó al cliente '"+cliente.id+"'.");
     });
 })
 
