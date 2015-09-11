@@ -31,6 +31,14 @@ io.on('connection', function(socket){
         io.emit('notificacion', ' usuario : "'+socket.id+'" conectado como "'+personas[socket.id]+'"');
     });
 
+    // NOTIFICACIONES DE BACKOFFICE
+    socket.on('newUsuarioBO', function(usuario){
+        console.log(usuario);
+        if(usuario.result){
+            io.emit('notificacion', "Se creó el usuario : '"+usuario.result[0].email+"'");
+        }
+
+    });
 })
 
 // se activa el servidor
